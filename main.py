@@ -4,6 +4,10 @@ from typing import Dict, Union
 # Import the functions we wrote in procedural_resale_shop.py
 from procedural_resale_shop import buy, update_price, sell, print_inventory, refurbish
 
+# Import object oriented code
+from computer import *
+from oo_resale_shop import *
+
 """ This helper function takes in a bunch of information about a computer,
     and packages it up into a python dictionary to make it easier to store
 
@@ -74,5 +78,27 @@ def main():
     print_inventory()
     print("Done.\n")
 
+
+"""
+Tests object oriented code
+"""
+def test():
+    shop = ResaleShop()
+    shop.buy("2019 MacBook Pro", "Intel", 256, 16, "High Sierra", 2019, 1000)
+    shop.buy("Mac Pro (Late 2013)", "3.5 GHc 6-Core Intel Xeon E5", 1024, 64, "macOS Big Sur", 2013, 1500)
+    shop.print_inventory()
+    shop.update_price(1, 1700)
+    shop.print_inventory()
+    shop.refurbish(1, "MacOS Monterey")
+    shop.print_inventory()
+    shop.sell(0)
+    shop.print_inventory()
+
+
 # Calls the main() function when this file is run
-if __name__ == "__main__": main()
+if __name__ == "__main__": 
+    test_mode: bool = True
+    if test_mode:
+        test()
+    else:
+        main()
