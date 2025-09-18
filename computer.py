@@ -1,5 +1,11 @@
 class Computer:
+    """
+    Holds details about a computer and can update them
+    """
 
+    """
+    Attributes are each a piece of information about the computer
+    """
     description: str
     processor_type: str
     hard_drive_capacity: int
@@ -8,7 +14,9 @@ class Computer:
     year_made: int
     price: int
 
-
+    """
+    Constructor takes in information about a computer and assigns it to the attributes
+    """
     def __init__(self, details: str, processor: str, capacity: int, mem: int, os: str, year:int, money: int):
         self.description = details
         self.processor_type = processor
