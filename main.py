@@ -120,7 +120,7 @@ def test():
 
 # Calls the main() function when this file is run
 if __name__ == "__main__": 
-    test_mode: bool = False
+    test_mode: bool = True
     if test_mode:
         test()
     else:

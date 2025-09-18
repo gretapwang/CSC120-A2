@@ -47,3 +47,12 @@ class Computer:
 
         if new_os != "":
             self.operating_system = new_os # update details after installing new OS 
+    
+    """
+    Returns a dictionary with all the computer's information, for the resale shop to use when 
+    printing inventory
+    """
+    def get_info(self) -> dict:
+        return({"description": self.description, "processor_type": self.processor_type, 
+                "hard_drive_capacity": self.hard_drive_capacity, "memory": self.memory, 
+                "operating_system": self.operating_system, "year_made": self.year_made, "price": self.price})

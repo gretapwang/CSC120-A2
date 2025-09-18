@@ -23,10 +23,10 @@ class ResaleShop:
     """
     def buy(self, description: str, processor_type: str, hard_drive_capacity: int, memory: int, 
             operating_system: str, year_made: int, price: int) -> int:
-        new_computer = Computer(description, processor_type, hard_drive_capacity, 
+        newComputer = Computer(description, processor_type, hard_drive_capacity, 
                                           memory, operating_system, year_made, price)
-        self.inventory.append(new_computer)
-        return self.inventory.index(new_computer)
+        self.inventory.append(newComputer)
+        return self.inventory.index(newComputer)
     
     """
     Takes in an item_id and new price, calls a Computer method to update price if the item
@@ -56,7 +56,7 @@ class ResaleShop:
     def print_inventory(self):
         if self.inventory:
             for item in self.inventory:
-                print("Item ID:", self.inventory.index(item), ":", {"description": item.description, "processor_type": item.processor_type, "hard_drive_capacity": item.hard_drive_capacity, "memory": item.memory, "operating_system": item.operating_system, "year_made": item.year_made, "price": item.price})
+                print("Item ID:", self.inventory.index(item), ":", item.get_info())
         else:
             print("No inventory to display.")
 
