@@ -86,41 +86,42 @@ def test():
 
     # Create a resale shop
     shop = ResaleShop()
-    shop.print_inventory()
 
     # Buy two computers
     print("Buying 2 computers:")
-    shop.buy("2019 MacBook Pro", "Intel", 256, 16, "High Sierra", 2019, 1000)
-    computer_id: int = shop.buy("Mac Pro (Late 2013)", "3.5 GHc 6-Core Intel Xeon E5", 1024, 64, "macOS Big Sur", 2013, 1500)
+    computer_a = Computer("2019 MacBook Pro", "Intel", 256, 16, "High Sierra", 2019, 1000)
+    computer_b = Computer("Mac Pro (Late 2013)", "3.5 GHc 6-Core Intel Xeon E5", 1024, 64, "macOS Big Sur", 2013, 1500)
+    shop.buy(computer_a)
+    shop.buy(computer_b)
     shop.print_inventory()
 
     # Test updating price
     print("Updating price of item 1:")
-    shop.update_price(computer_id, 1700)
+    computer_b.update_price(1700)
     shop.print_inventory()
 
     # Test refurbishing
     print("Refurbishing item 1:")
-    shop.refurbish(computer_id, "MacOS Monterey")
+    computer_b.refurbish("MacOS Monterey")
     shop.print_inventory()
 
     # Test selling
     print("Selling item 1:")
-    shop.sell(computer_id)
+    shop.sell(1)
     shop.print_inventory()
 
     # Test error messages
     print("Error messages:")
-    shop.update_price(3, 1000)
     shop.sell(3)
-    shop.refurbish(3)
+    shop.sell(0)
+    shop.print_inventory()
 
 
 
 
 # Calls the main() function when this file is run
 if __name__ == "__main__": 
-    test_mode: bool = True
+    test_mode: bool = False
     if test_mode:
         test()
     else:
